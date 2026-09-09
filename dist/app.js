@@ -4,6 +4,20 @@ const $ = (id) => document.getElementById(id);
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (!reducedMotion.matches) document.documentElement.classList.add('motion');
 let unlocked = false;
+const passwordHints = ['you + me', 'bracelet', 'our names', 'BETHANY + PETAR', 'our combined names'];
+let revealedHints = 0;
+function revealPasswordHint() {
+  if (revealedHints >= passwordHints.length) return;
+  const hint = document.createElement('li');
+  hint.textContent = passwordHints[revealedHints++];
+  $('password-hints').hidden = false;
+  $('hint-list').append(hint);
+}
+function resetPasswordHints() {
+  revealedHints = 0;
+  $('hint-list').replaceChildren();
+  $('password-hints').hidden = true;
+}
 const gate = $('gate');
 const site = $('site');
 const password = $('password');
@@ -31,13 +45,13 @@ function openSite() {
 $('unlock-form').addEventListener('submit', event => {
   event.preventDefault();
   if (password.value.trim().toLowerCase() === 'betar') { $('password-error').textContent = ''; openSite(); }
-  else { $('password-error').textContent = 'Not quite, my love. Try our little password again.'; password.setAttribute('aria-invalid','true'); gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake'); password.select(); }
+  else { revealPasswordHint(); $('password-error').textContent = 'Not quite, my love. Here’s a little help.'; password.setAttribute('aria-invalid','true'); gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake'); password.select(); }
 });
 password.addEventListener('input', () => { password.removeAttribute('aria-invalid'); $('password-error').textContent = ''; });
 $('show-password').addEventListener('click', () => { const show = password.type === 'password'; password.type = show ? 'text' : 'password'; $('show-password').textContent = show ? 'Hide' : 'Show'; $('show-password').setAttribute('aria-label', show ? 'Hide password' : 'Show password'); });
 $('lock').addEventListener('click', () => {
   if ($('lightbox').open) $('lightbox').close();
-  unlocked=false; site.hidden=true; site.inert=true; gate.inert=false; gate.classList.remove('open'); document.body.classList.add('locked'); password.value=''; password.type='password'; $('show-password').textContent='Show'; $('show-password').setAttribute('aria-label','Show password');
+  resetPasswordHints(); $('password-error').textContent=''; password.removeAttribute('aria-invalid'); unlocked=false; site.hidden=true; site.inert=true; gate.inert=false; gate.classList.remove('open'); document.body.classList.add('locked'); password.value=''; password.type='password'; $('show-password').textContent='Show'; $('show-password').setAttribute('aria-label','Show password');
   try { sessionStorage.removeItem('betar-unlocked'); } catch {}
   window.scrollTo(0,0);password.focus();
 });
