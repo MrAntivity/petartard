@@ -20,6 +20,8 @@ The relationship timer starts September 11, 2025 at 9 pm in California (UTC−07
 
 ## Hosting
 
-This is a build-free static website. Publish `dist/` as the website root using any static host (e.g. Cloudflare Pages, Netlify, or GitHub Pages through an Actions artifact). There are no environment variables, database, or npm dependencies. The optional Google Fonts stylesheet has system font fallbacks.
+GitHub Pages publishes `dist/` using `.github/workflows/pages.yml`. Changes to the website on `main` automatically trigger publication; the workflow can also be run manually in Actions. The site URL is https://mrantivity.github.io/petartard/. Repository Settings → Pages should use GitHub Actions as the source.
+
+This is a build-free static website. There are no environment variables, database, or npm dependencies. The optional Google Fonts stylesheet has system font fallbacks.
 
 Photos are optimized WebP copies of the supplied originals, with the hero's transparency retained. The supplied originals have not been changed.
