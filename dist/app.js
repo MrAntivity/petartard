@@ -50,6 +50,7 @@ $('unlock-form').addEventListener('submit', event => {
 password.addEventListener('input', () => { password.removeAttribute('aria-invalid'); $('password-error').textContent = ''; });
 $('show-password').addEventListener('click', () => { const show = password.type === 'password'; password.type = show ? 'text' : 'password'; $('show-password').textContent = show ? 'Hide' : 'Show'; $('show-password').setAttribute('aria-label', show ? 'Hide password' : 'Show password'); });
 $('lock').addEventListener('click', () => {
+  $('our-video').pause();
   if ($('lightbox').open) $('lightbox').close();
   resetPasswordHints(); $('password-error').textContent=''; password.removeAttribute('aria-invalid'); unlocked=false; site.hidden=true; site.inert=true; gate.inert=false; gate.classList.remove('open'); document.body.classList.add('locked'); password.value=''; password.type='password'; $('show-password').textContent='Show'; $('show-password').setAttribute('aria-label','Show password');
   try { sessionStorage.removeItem('betar-unlocked'); } catch {}
@@ -93,3 +94,28 @@ dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.prev
 let framePending=false;
 window.addEventListener('scroll',()=>{if(framePending||reducedMotion.matches||!unlocked)return;framePending=true;requestAnimationFrame(()=>{if(window.scrollY<900)document.documentElement.style.setProperty('--hero-shift',`${Math.min(window.scrollY*.09,60)}px`);framePending=false;});},{passive:true});
 try {if(sessionStorage.getItem('betar-unlocked')==='yes') openSite();} catch {}
+
+const ourVideo = $('our-video');
+const playVideo = $('play-video');
+function videoPlaybackError() {
+  playVideo.hidden = false;
+  $('video-play-label').textContent = 'Try playing again';
+  $('video-status').hidden = false;
+  $('video-status').textContent = 'The video couldn’t start. Try again, or open it directly below.';
+  $('video-fallback').hidden = false;
+}
+playVideo.addEventListener('click', async () => {
+  if (!unlocked) return;
+  if (ourVideo.ended) ourVideo.currentTime = 0;
+  ourVideo.muted = false;
+  ourVideo.volume = 1;
+  $('video-status').hidden = true;
+  $('video-fallback').hidden = true;
+  try {
+    await ourVideo.play();
+    ourVideo.focus({preventScroll: true});
+  } catch { videoPlaybackError(); }
+});
+ourVideo.addEventListener('play', () => { playVideo.hidden = true; $('video-status').hidden = true; $('video-fallback').hidden = true; });
+ourVideo.addEventListener('ended', () => { playVideo.hidden = false; $('video-play-label').textContent = 'Play again'; });
+ourVideo.addEventListener('error', videoPlaybackError);
