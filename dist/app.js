@@ -77,7 +77,7 @@ for (const [element, rows] of [['bethany-facts',data.bethanyFacts],['petar-facts
 for (const event of data.timeline) {
  const future=event.dream || new Date(event.date).getTime()>Date.now();const item=document.createElement('article');item.className=`timeline-item reveal${future?' future':''}${event.special?' special':''}`;
  const date=document.createElement(event.dream?'span':'time');date.className='eyebrow';date.textContent=event.label;if(!event.dream)date.dateTime=event.date;
- const title=document.createElement('h3');title.textContent=event.title;const text=document.createElement('p');text.textContent=event.text;item.append(date,title,text);
+ const title=document.createElement('h3');title.textContent=event.title;const text=document.createElement('p');text.textContent=event.text;item.append(date,title);if(event.text)item.append(text);
  if(future){const label=document.createElement('span');label.className='future-label';label.textContent=event.dream?'A DAYDREAM, NOT A DATE':'STILL AHEAD';item.append(label);}$('timeline').append(item);
 }
 let photoIndex=0;

@@ -13,3 +13,5 @@
 .gate-inner{flex-shrink:0}.gate-footer{position:static;width:100%;flex-shrink:0}
 .hero-type>p{max-width:320px}
 @media(max-width:700px){.hero-type>p{max-width:175px}.gate{padding-top:32px;padding-bottom:20px}}
+
+.shared-fact .love-languages{font-size:clamp(1.65rem,2.8vw,2.4rem);line-height:1.25;margin-top:8px}.section-heading>p{max-width:300px}

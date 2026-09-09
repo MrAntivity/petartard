@@ -14,9 +14,9 @@ Serve `dist` with any static web server, for example `python3 -m http.server 800
 
 Edit `dist/content.js` to replace the starter captions with Petar's own notes, add memories, update favorite things, and adjust timeline entries. Place new images in `dist/assets` and reference their basename in a memory entry. Photos open with their full captions; arrows and keyboard left/right browse the collection. The first photo has its own featured section and is also in the viewer.
 
-The supplied caption drafts avoid inventing dates or specific events not provided. The intro, first-photo section, Luna tribute, and closing note are in `dist/index.html`. All visible romantic copy is written from Petar's perspective, addressed to Bethany.
+The supplied caption drafts avoid inventing dates or specific events not provided. The intro, first-photo section, and Luna tribute are in `dist/index.html`. All visible romantic copy is written from Petar's perspective, addressed to Bethany.
 
-The relationship timer starts September 11, 2025 at 9 pm in California (UTC−07:00), independent of a viewer's timezone. Birthdays are ordered chronologically. Future milestones are visibly marked based on today's date. May 2028 is a graduation goal; engagement in 2031? and marriage in 2033? are explicitly tentative dreams.
+The relationship timer starts September 11, 2025 at 9 pm in California (UTC−07:00), independent of a viewer's timezone. Birthdays are ordered chronologically. Future milestones are visibly marked based on today's date. May 2028 is a graduation goal; the engagement milestone uses an unspecified 203X date and remains a tentative dream.
 
 ## Hosting
 
