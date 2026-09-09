@@ -18,8 +18,8 @@ window.BETAR = {
   bethanyFacts: [['Her palette','Pink & blue'],['Flowers for you','Peonies'],['Those eyes','Brown'],['Your soundtrack','Sabrina Carpenter & Ariana Grande'],['California girl','Born & raised'],['A little sparkle','Gold jewelry'],['Princess energy','Ariel'],['Your comfort order','Chick-fil-A'],['One more episode','The Summer I Turned Pretty'],['Your sign','Taurus'],['The little details','Women’s size 5.5']],
   petarFacts: [['My palette','Green'],['My flowers','Lilies'],['My eyes','Brown, just like yours'],['My kind of sparkle','Silver jewelry'],['My comfort order','Sushi'],['My sign','Aquarius'],['The little details','Men’s size 11']],
   timeline: [
-    {date:'2005-05-10T03:49:00-07:00',label:'MAY 10, 2005 · 3:49 AM',title:'The world got you.',text:'A California girl, born at 3:49 in the morning. My favorite person’s very first chapter.'},
-    {date:'2006-01-20T00:00:00-08:00',label:'JANUARY 20, 2006',title:'Then, along came me.',text:'Two separate beginnings. We had no idea our stories would find each other one day.'},
+    {date:'2006-01-20T00:00:00-08:00',label:'JANUARY 20, 2006',title:'My story begins.',text:'Two separate beginnings. We had no idea our stories would find each other one day.'},
+    {date:'2006-05-10T03:49:00-07:00',label:'MAY 10, 2006 · 3:49 AM',title:'The world got you.',text:'A California girl, born at 3:49 in the morning. My favorite person’s very first chapter.'},
     {date:'2024-09-01T00:00:00-07:00',label:'SEPTEMBER 2024',title:'Same campus. A new chapter.',text:'We both started college at UCR. Somewhere in our college story, a dance class brought us together.'},
     {date:'2025-09-11T21:00:00-07:00',label:'SEPTEMBER 11, 2025 · AROUND 9 PM',title:'You & me became us.',text:'The beginning of our relationship. A date I’ll always keep close to my heart.',special:true},
     {date:'2026-09-11T21:00:00-07:00',label:'SEPTEMBER 11, 2026',title:'Our first whole year.',text:'Our first anniversary. A year of little moments, learning each other, and choosing us.'},
