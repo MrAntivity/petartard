@@ -1,6 +1,6 @@
 # For Bethany, always.
 
-An anniversary website from Petar to Bethany: a cutout portrait hero, live relationship clock, their first photo, 11 more gallery memories, personal details, a past-and-future timeline, and a tribute to Luna.
+An anniversary website from Petar to Bethany: a cutout portrait hero, live relationship clock, their first photo, 20 more gallery memories, personal details, a past-and-future timeline, and a tribute to Luna.
 
 ## View locally
 
